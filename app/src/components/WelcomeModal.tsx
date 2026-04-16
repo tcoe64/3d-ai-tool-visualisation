@@ -57,8 +57,7 @@ export function WelcomeModal({ open, onClose }: Props) {
             <p style={{ margin: '0 0 24px', fontSize: 13, color: '#6aab8a', lineHeight: 1.6 }}>
               Each sphere represents an AI tool, positioned in 3D space by the
               dimensions you care about most. All scores run from 1–10 where a higher
-              number is always better. Colour shows reliability (green = high);
-              size shows cost value (larger = better value).
+              number is always better. Select your usecase eg. 'Solo Founder' and the axis that you want to map.
             </p>
 
             <div style={{ display: 'flex', flexDirection: 'column', gap: 12, marginBottom: 28 }}>
