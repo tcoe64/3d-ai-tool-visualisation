@@ -67,7 +67,7 @@ This document outlines the step-by-step tasks to build a 3D semantic visualizati
 - [x] **Touch Support:** `<OrbitControls>` handles pinch-to-zoom and single-finger rotate natively
 - [ ] **Performance Audit:** Add `<Stats>` from Drei temporarily to measure FPS
 - [ ] **Remove `<Stats>`** before deployment
-- [ ] **Deployment:** Deploy to Vercel or Netlify; confirm production build loads without console errors
+- [ ] **Deployment:** Add `vercel.json` to set `app/` as the build root directory so Vercel can find `vite` and build correctly
 
 **✓ Verify:** `npm run build` succeeds. ✅ Lighthouse score — pending deployment.
 
