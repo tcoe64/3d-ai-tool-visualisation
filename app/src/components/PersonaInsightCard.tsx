@@ -1,12 +1,15 @@
 import { motion, AnimatePresence } from 'framer-motion';
 import type { PersonaKey } from '../types';
 import { PERSONA_LABELS, PERSONA_INSIGHTS } from '../types';
+import { useIsMobile } from '../hooks/useIsMobile';
 
 interface Props {
   persona: PersonaKey | null;
 }
 
 export function PersonaInsightCard({ persona }: Props) {
+  const isMobile = useIsMobile();
+
   return (
     <AnimatePresence>
       {persona && (
@@ -18,9 +21,10 @@ export function PersonaInsightCard({ persona }: Props) {
           transition={{ type: 'spring', stiffness: 300, damping: 30 }}
           style={{
             position: 'fixed',
-            bottom: 72,
-            left: '50%',
-            transform: 'translateX(-50%)',
+            bottom: isMobile ? 56 : 72,
+            left: isMobile ? 12 : '50%',
+            right: isMobile ? 12 : undefined,
+            transform: isMobile ? undefined : 'translateX(-50%)',
             background: 'rgba(4,20,12,0.92)',
             border: '1px solid rgba(58,170,122,0.35)',
             borderRadius: 10,
@@ -28,9 +32,9 @@ export function PersonaInsightCard({ persona }: Props) {
             backdropFilter: 'blur(12px)',
             zIndex: 100,
             fontFamily: 'monospace',
-            maxWidth: 480,
-            width: '90vw',
-            textAlign: 'center',
+            maxWidth: isMobile ? undefined : 480,
+            width: isMobile ? undefined : '90vw',
+            textAlign: isMobile ? 'left' : 'center',
           }}
         >
           <span style={{ color: '#3aaa7a', fontWeight: 700, fontSize: 11 }}>

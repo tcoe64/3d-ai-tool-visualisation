@@ -1,6 +1,7 @@
 import { Search } from 'lucide-react';
 import type { DimensionKey } from '../types';
 import { DIMENSION_LABELS } from '../types';
+import { useIsMobile } from '../hooks/useIsMobile';
 
 interface Props {
   filterDim: DimensionKey;
@@ -12,6 +13,8 @@ interface Props {
 const ALL_KEYS = Object.keys(DIMENSION_LABELS) as DimensionKey[];
 
 export function FilterBar({ filterDim, filterMin, onDimChange, onMinChange }: Props) {
+  const isMobile = useIsMobile();
+
   return (
     <div style={{
       position: 'fixed',
@@ -20,16 +23,17 @@ export function FilterBar({ filterDim, filterMin, onDimChange, onMinChange }: Pr
       transform: 'translateX(-50%)',
       display: 'flex',
       alignItems: 'center',
-      gap: 10,
+      gap: isMobile ? 6 : 10,
       background: 'rgba(4,20,12,0.92)',
       border: '1px solid rgba(58,170,122,0.3)',
       borderRadius: 40,
-      padding: '10px 20px',
+      padding: isMobile ? '8px 12px' : '10px 20px',
       backdropFilter: 'blur(12px)',
       zIndex: 100,
       color: '#a8dfc5',
       fontFamily: 'monospace',
-      fontSize: 12,
+      fontSize: isMobile ? 11 : 12,
+      maxWidth: isMobile ? 'calc(100vw - 100px)' : undefined,
     }}>
       <Search size={14} color="#3aaa7a" />
 
@@ -48,6 +52,7 @@ export function FilterBar({ filterDim, filterMin, onDimChange, onMinChange }: Pr
           padding: '3px 6px',
           cursor: 'pointer',
           outline: 'none',
+          maxWidth: isMobile ? 110 : undefined,
         }}
       >
         {ALL_KEYS.map((key) => (
@@ -63,7 +68,7 @@ export function FilterBar({ filterDim, filterMin, onDimChange, onMinChange }: Pr
         max={10}
         value={filterMin}
         onChange={(e) => onMinChange(Number(e.target.value))}
-        style={{ width: 90, accentColor: '#3aaa7a' }}
+        style={{ width: isMobile ? 60 : 90, accentColor: '#3aaa7a' }}
       />
 
       <span style={{ color: '#e0fff4', fontWeight: 700, width: 16 }}>{filterMin}</span>

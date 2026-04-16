@@ -1,3 +1,7 @@
 *, *::before, *::after { box-sizing: border-box; }
 body { margin: 0; overflow: hidden; background: #0a0a0f; }
 #root { width: 100vw; height: 100vh; }
+
+/* Hide scrollbar on horizontal-scrolling persona bar (mobile) */
+.persona-bar-scroll::-webkit-scrollbar { display: none; }
+.persona-bar-scroll { -ms-overflow-style: none; scrollbar-width: none; }

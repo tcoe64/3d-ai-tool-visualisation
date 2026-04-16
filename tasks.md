@@ -67,7 +67,18 @@ This document outlines the step-by-step tasks to build a 3D semantic visualizati
 - [x] **Touch Support:** `<OrbitControls>` handles pinch-to-zoom and single-finger rotate natively
 - [ ] **Performance Audit:** Add `<Stats>` from Drei temporarily to measure FPS
 - [ ] **Remove `<Stats>`** before deployment
-- [ ] **Deployment:** Add `vercel.json` to set `app/` as the build root directory so Vercel can find `vite` and build correctly
+- [x] **Deployment:** Added `vercel.json` to set `app/` as the build root directory so Vercel can find `vite` and build correctly
+
+---
+
+## Phase 5b: Mobile Responsiveness
+
+- [x] **AxisSelector:** Collapsible on mobile (<640px) — shows as compact "AXES" toggle button; tapping expands full selector panel
+- [x] **PersonaBar:** Full-width horizontal scroll on mobile; hidden scrollbar; no wrapping
+- [x] **PersonaInsightCard:** Repositioned above PersonaBar on mobile; left/right margins instead of centered transform
+- [x] **DetailPanel:** Full-width bottom sheet on mobile (slides up) instead of fixed-right sidebar
+- [x] **FilterBar:** Compact padding, shorter slider, capped width on narrow screens
+- [x] **Verify:** `npm run build` passes; no TS errors
 
 **✓ Verify:** `npm run build` succeeds. ✅ Lighthouse score — pending deployment.
 

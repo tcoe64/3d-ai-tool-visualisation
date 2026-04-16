@@ -2,6 +2,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { X } from 'lucide-react';
 import type { ToolWithCoords, PersonaKey } from '../types';
 import { PERSONA_LABELS } from '../types';
+import { useIsMobile } from '../hooks/useIsMobile';
 
 interface Props {
   tool: ToolWithCoords | null;
@@ -41,29 +42,65 @@ function ScoreBar({ value }: { value: number }) {
 }
 
 export function DetailPanel({ tool, onClose, persona }: Props) {
+  const isMobile = useIsMobile();
+
+  const mobileStyle: React.CSSProperties = {
+    position: 'fixed',
+    bottom: 0,
+    left: 0,
+    right: 0,
+    maxHeight: '55vh',
+    overflowY: 'auto',
+    background: 'rgba(4,20,12,0.97)',
+    border: 'none',
+    borderTop: '1px solid rgba(58,170,122,0.3)',
+    borderRadius: '16px 16px 0 0',
+    padding: '20px 20px 24px',
+    backdropFilter: 'blur(12px)',
+    zIndex: 150,
+    color: '#e0fff4',
+    fontFamily: 'monospace',
+  };
+
+  const desktopStyle: React.CSSProperties = {
+    position: 'fixed',
+    top: 80,
+    right: 16,
+    width: 280,
+    background: 'rgba(4,20,12,0.92)',
+    border: '1px solid rgba(58,170,122,0.3)',
+    borderRadius: 12,
+    padding: '20px 20px 24px',
+    backdropFilter: 'blur(12px)',
+    zIndex: 100,
+    color: '#e0fff4',
+    fontFamily: 'monospace',
+  };
+
+  const mobileAnimation = {
+    initial: { y: '100%', opacity: 0 },
+    animate: { y: 0, opacity: 1 },
+    exit: { y: '100%', opacity: 0 },
+  };
+
+  const desktopAnimation = {
+    initial: { x: 320, opacity: 0 },
+    animate: { x: 0, opacity: 1 },
+    exit: { x: 320, opacity: 0 },
+  };
+
+  const anim = isMobile ? mobileAnimation : desktopAnimation;
+
   return (
     <AnimatePresence>
       {tool && (
         <motion.div
           key={tool.name}
-          initial={{ x: 320, opacity: 0 }}
-          animate={{ x: 0,   opacity: 1 }}
-          exit={{   x: 320, opacity: 0 }}
+          initial={anim.initial}
+          animate={anim.animate}
+          exit={anim.exit}
           transition={{ type: 'spring', stiffness: 300, damping: 30 }}
-          style={{
-            position: 'fixed',
-            top: 80,
-            right: 16,
-            width: 280,
-            background: 'rgba(4,20,12,0.92)',
-            border: '1px solid rgba(58,170,122,0.3)',
-            borderRadius: 12,
-            padding: '20px 20px 24px',
-            backdropFilter: 'blur(12px)',
-            zIndex: 100,
-            color: '#e0fff4',
-            fontFamily: 'monospace',
-          }}
+          style={isMobile ? mobileStyle : desktopStyle}
         >
           <button
             onClick={onClose}

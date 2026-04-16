@@ -1,5 +1,6 @@
 import type { PersonaKey } from '../types';
 import { PERSONA_LABELS } from '../types';
+import { useIsMobile } from '../hooks/useIsMobile';
 
 interface Props {
   active: PersonaKey | null;
@@ -9,23 +10,29 @@ interface Props {
 const PERSONAS = Object.keys(PERSONA_LABELS) as PersonaKey[];
 
 export function PersonaBar({ active, onChange }: Props) {
+  const isMobile = useIsMobile();
+
   return (
-    <div style={{
+    <div className={isMobile ? 'persona-bar-scroll' : undefined} style={{
       position: 'fixed',
-      bottom: 20,
-      left: '50%',
-      transform: 'translateX(-50%)',
+      bottom: isMobile ? 12 : 20,
+      left: isMobile ? 0 : '50%',
+      right: isMobile ? 0 : undefined,
+      transform: isMobile ? undefined : 'translateX(-50%)',
       display: 'flex',
       alignItems: 'center',
       gap: 6,
       background: 'rgba(4,20,12,0.92)',
-      border: '1px solid rgba(58,170,122,0.3)',
-      borderRadius: 40,
-      padding: '8px 14px',
+      border: isMobile ? 'none' : '1px solid rgba(58,170,122,0.3)',
+      borderTop: isMobile ? '1px solid rgba(58,170,122,0.3)' : undefined,
+      borderRadius: isMobile ? 0 : 40,
+      padding: isMobile ? '8px 12px' : '8px 14px',
       backdropFilter: 'blur(12px)',
       zIndex: 100,
-      flexWrap: 'wrap',
-      justifyContent: 'center',
+      flexWrap: 'nowrap',
+      justifyContent: isMobile ? 'flex-start' : 'center',
+      overflowX: isMobile ? 'auto' : undefined,
+      WebkitOverflowScrolling: 'touch',
     }}>
       {PERSONAS.map((key) => {
         const isActive = active === key;
@@ -45,6 +52,7 @@ export function PersonaBar({ active, onChange }: Props) {
               cursor: 'pointer',
               transition: 'all 0.2s ease',
               whiteSpace: 'nowrap',
+              flexShrink: 0,
             }}
           >
             {PERSONA_LABELS[key]}

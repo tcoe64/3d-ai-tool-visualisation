@@ -1,5 +1,8 @@
+import { useState } from 'react';
+import { ChevronDown, ChevronUp } from 'lucide-react';
 import type { AxisConfig, DimensionKey } from '../types';
 import { DIMENSION_LABELS } from '../types';
+import { useIsMobile } from '../hooks/useIsMobile';
 
 interface Props {
   axisConfig: AxisConfig;
@@ -11,6 +14,9 @@ const AXES = ['x', 'y', 'z'] as const;
 const AXIS_COLORS = { x: '#ff6666', y: '#66ff88', z: '#6699ff' };
 
 export function AxisSelector({ axisConfig, onChange }: Props) {
+  const isMobile = useIsMobile();
+  const [expanded, setExpanded] = useState(false);
+
   function handleChange(axis: 'x' | 'y' | 'z', value: DimensionKey) {
     const swapAxis = AXES.find((a) => a !== axis && axisConfig[a] === value);
     const updated = { ...axisConfig, [axis]: value };
@@ -18,15 +24,44 @@ export function AxisSelector({ axisConfig, onChange }: Props) {
     onChange(updated);
   }
 
+  if (isMobile && !expanded) {
+    return (
+      <button
+        onClick={() => setExpanded(true)}
+        style={{
+          position: 'fixed',
+          bottom: 70,
+          left: 12,
+          background: 'rgba(4,20,12,0.92)',
+          border: '1px solid rgba(58,170,122,0.3)',
+          borderRadius: 10,
+          padding: '8px 12px',
+          backdropFilter: 'blur(12px)',
+          zIndex: 100,
+          fontFamily: 'monospace',
+          fontSize: 10,
+          color: '#a8dfc5',
+          cursor: 'pointer',
+          display: 'flex',
+          alignItems: 'center',
+          gap: 6,
+        }}
+      >
+        <span style={{ fontWeight: 700, color: '#e0fff4' }}>AXES</span>
+        <ChevronUp size={12} color="#3aaa7a" />
+      </button>
+    );
+  }
+
   return (
     <div style={{
       position: 'fixed',
-      bottom: 20,
-      left: 20,
+      bottom: isMobile ? 70 : 20,
+      left: isMobile ? 12 : 20,
       background: 'rgba(4,20,12,0.92)',
       border: '1px solid rgba(58,170,122,0.3)',
       borderRadius: 12,
-      padding: '14px 18px',
+      padding: isMobile ? '10px 14px' : '14px 18px',
       backdropFilter: 'blur(12px)',
       zIndex: 100,
       fontFamily: 'monospace',
@@ -35,10 +70,23 @@ export function AxisSelector({ axisConfig, onChange }: Props) {
       display: 'flex',
       flexDirection: 'column',
       gap: 10,
-      minWidth: 220,
+      minWidth: isMobile ? 180 : 220,
     }}>
-      <div style={{ color: '#e0fff4', fontWeight: 700, marginBottom: 2, fontSize: 11 }}>
+      <div
+        style={{
+          color: '#e0fff4',
+          fontWeight: 700,
+          marginBottom: 2,
+          fontSize: 11,
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'space-between',
+          cursor: isMobile ? 'pointer' : 'default',
+        }}
+        onClick={isMobile ? () => setExpanded(false) : undefined}
+      >
         AXIS MAPPING
+        {isMobile && <ChevronDown size={12} color="#3aaa7a" />}
       </div>
 
       {AXES.map((axis) => (
