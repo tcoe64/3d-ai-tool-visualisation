@@ -1,0 +1,132 @@
+[
+  {
+    "name": "Claude",
+    "setup": 8, "connections": 6, "cost": 5, "agentCap": 10, "reliability": 7,
+    "description": "Excels at long-context reasoning, nuanced writing, and autonomous coding tasks. Particularly strong for complex, multi-step agentic workflows and safety-conscious deployments.",
+    "personas": {
+      "soloFounder":     { "fit": true,  "justification": "Top-tier agent capability means Claude can act as a full team member — drafting, coding, and reasoning autonomously with minimal supervision." },
+      "enterpriseScale": { "fit": true,  "justification": "Safety-focused design and enterprise agreements make Claude a reliable choice for organisations that need governed, high-stakes AI deployments." },
+      "rapidMvp":        { "fit": true,  "justification": "Claude's code generation and reasoning speed allow founders to move from idea to working prototype in hours, not days." },
+      "contentPipeline": { "fit": true,  "justification": "Exceptional at long-form writing, editing, and tone consistency — ideal for scaling content without sacrificing quality." },
+      "internalOps":     { "fit": false, "justification": "" },
+      "researchStrategy":{ "fit": true,  "justification": "Handles extremely long documents and complex multi-source reasoning, making it ideal for strategy synthesis and competitive analysis." }
+    }
+  },
+  {
+    "name": "Gemini",
+    "setup": 8, "connections": 10, "cost": 7, "agentCap": 6, "reliability": 8,
+    "description": "Best-in-class for deep integration across Google's ecosystem (Docs, Sheets, Search, Maps). Ideal for organisations already working within Google Workspace.",
+    "personas": {
+      "soloFounder":     { "fit": false, "justification": "" },
+      "enterpriseScale": { "fit": true,  "justification": "Unmatched Google Workspace integration and enterprise reliability make Gemini the natural choice for Google-first organisations at scale." },
+      "rapidMvp":        { "fit": false, "justification": "" },
+      "contentPipeline": { "fit": true,  "justification": "Native integration with Google Docs and Sheets lets teams build content pipelines directly inside tools they already use every day." },
+      "internalOps":     { "fit": true,  "justification": "Deep Google Workspace connectivity enables powerful automation of internal processes — from Sheets-based reporting to Calendar and Gmail workflows." },
+      "researchStrategy":{ "fit": true,  "justification": "Real-time Search grounding and broad data access make Gemini a strong partner for up-to-date market research and strategic intelligence." }
+    }
+  },
+  {
+    "name": "Perplexity",
+    "setup": 7, "connections": 4, "cost": 7, "agentCap": 5, "reliability": 7,
+    "description": "Specialises in real-time, citation-backed research and web search. A strong choice when accuracy, source transparency, and up-to-date information are priorities.",
+    "personas": {
+      "soloFounder":     { "fit": true,  "justification": "A solo founder's best research companion — delivers fast, cited answers that replace hours of manual searching and source verification." },
+      "enterpriseScale": { "fit": false, "justification": "" },
+      "rapidMvp":        { "fit": false, "justification": "" },
+      "contentPipeline": { "fit": true,  "justification": "Citation-backed research at speed means content teams can fact-check and source material in minutes rather than hours." },
+      "internalOps":     { "fit": false, "justification": "" },
+      "researchStrategy":{ "fit": true,  "justification": "Purpose-built for research — every answer is grounded in live sources with citations, making it ideal for evidence-based strategy work." }
+    }
+  },
+  {
+    "name": "ChatGPT",
+    "setup": 9, "connections": 8, "cost": 5, "agentCap": 9, "reliability": 7,
+    "description": "The most widely adopted AI assistant, with an extensive plugin and GPT ecosystem. Excellent for general-purpose tasks, content creation, and rapid prototyping.",
+    "personas": {
+      "soloFounder":     { "fit": true,  "justification": "The largest ecosystem of plugins and custom GPTs means a solo founder can find a ready-made AI tool for almost any task without building from scratch." },
+      "enterpriseScale": { "fit": true,  "justification": "Enterprise tier offers SSO, audit logs, and admin controls alongside the broadest third-party integration ecosystem available." },
+      "rapidMvp":        { "fit": true,  "justification": "Fastest time-to-useful output of any tool — no learning curve, massive community of prompts and templates, and strong code generation." },
+      "contentPipeline": { "fit": true,  "justification": "The go-to for content teams — versatile across formats, tones, and languages, with a rich library of community-built content workflows." },
+      "internalOps":     { "fit": false, "justification": "" },
+      "researchStrategy":{ "fit": true,  "justification": "Broad world knowledge combined with strong reasoning and web browsing makes ChatGPT a reliable first-pass research and synthesis tool." }
+    }
+  },
+  {
+    "name": "Cursor",
+    "setup": 7, "connections": 5, "cost": 7, "agentCap": 8, "reliability": 7,
+    "description": "An AI-native code editor that accelerates software development with inline suggestions, refactoring, and codebase-aware chat. Best suited for professional developers.",
+    "personas": {
+      "soloFounder":     { "fit": true,  "justification": "A solo technical founder's force multiplier — Cursor understands your entire codebase and generates context-aware code, halving development time." },
+      "enterpriseScale": { "fit": false, "justification": "" },
+      "rapidMvp":        { "fit": true,  "justification": "Codebase-aware suggestions and inline generation let developers ship MVP features significantly faster than with a standard editor." },
+      "contentPipeline": { "fit": false, "justification": "" },
+      "internalOps":     { "fit": false, "justification": "" },
+      "researchStrategy":{ "fit": false, "justification": "" }
+    }
+  },
+  {
+    "name": "n8n",
+    "setup": 3, "connections": 10, "cost": 10, "agentCap": 6, "reliability": 8,
+    "description": "A self-hostable workflow automation platform with the broadest range of integrations. Best for teams that need powerful, customisable automations without ongoing SaaS costs.",
+    "personas": {
+      "soloFounder":     { "fit": false, "justification": "" },
+      "enterpriseScale": { "fit": true,  "justification": "Self-hosted deployment and 400+ integrations give enterprise teams full data sovereignty and the ability to automate any cross-system workflow." },
+      "rapidMvp":        { "fit": false, "justification": "" },
+      "contentPipeline": { "fit": true,  "justification": "Connect your CMS, social platforms, and AI tools into a single automated pipeline — publish, repurpose, and distribute content without manual steps." },
+      "internalOps":     { "fit": true,  "justification": "The broadest integration library of any tool reviewed — ideal for stitching together internal systems and automating repetitive operational workflows." },
+      "researchStrategy":{ "fit": false, "justification": "" }
+    }
+  },
+  {
+    "name": "MindStudio",
+    "setup": 9, "connections": 4, "cost": 7, "agentCap": 4, "reliability": 7,
+    "description": "A no-code builder for creating and deploying custom AI apps. Ideal for non-technical users who want to ship AI-powered tools quickly without writing any code.",
+    "personas": {
+      "soloFounder":     { "fit": true,  "justification": "Build and deploy a custom AI product without writing a line of code — MindStudio is the fastest path from idea to shareable AI tool for non-technical founders." },
+      "enterpriseScale": { "fit": false, "justification": "" },
+      "rapidMvp":        { "fit": true,  "justification": "No-code AI app builder with instant deployment — ideal for validating product ideas quickly without engineering resource." },
+      "contentPipeline": { "fit": false, "justification": "" },
+      "internalOps":     { "fit": true,  "justification": "Non-technical teams can build custom internal AI tools — from onboarding assistants to policy Q&A bots — without involving developers." },
+      "researchStrategy":{ "fit": false, "justification": "" }
+    }
+  },
+  {
+    "name": "Replit",
+    "setup": 8, "connections": 5, "cost": 6, "agentCap": 6, "reliability": 6,
+    "description": "A browser-based coding environment with built-in AI assistance, hosting, and collaboration. Great for rapid prototyping, learning, and teams that want zero local setup.",
+    "personas": {
+      "soloFounder":     { "fit": true,  "justification": "Code, host, and share a working product from the browser with no local setup — perfect for a solo founder who needs to move fast without DevOps overhead." },
+      "enterpriseScale": { "fit": false, "justification": "" },
+      "rapidMvp":        { "fit": true,  "justification": "From blank canvas to live, shareable URL in minutes — Replit removes every infrastructure barrier between an idea and a working demo." },
+      "contentPipeline": { "fit": false, "justification": "" },
+      "internalOps":     { "fit": false, "justification": "" },
+      "researchStrategy":{ "fit": false, "justification": "" }
+    }
+  },
+  {
+    "name": "MS Power Apps",
+    "setup": 2, "connections": 9, "cost": 3, "agentCap": 4, "reliability": 9,
+    "description": "Enterprise-grade low-code app development deeply embedded in the Microsoft 365 ecosystem. Best for organisations that need robust, governed applications connected to existing Microsoft infrastructure.",
+    "personas": {
+      "soloFounder":     { "fit": false, "justification": "" },
+      "enterpriseScale": { "fit": true,  "justification": "Deep Microsoft 365 integration, enterprise governance, and 99.9% SLA reliability make Power Apps the default choice for Microsoft-first enterprises." },
+      "rapidMvp":        { "fit": false, "justification": "" },
+      "contentPipeline": { "fit": false, "justification": "" },
+      "internalOps":     { "fit": true,  "justification": "Native integration with SharePoint, Teams, Dynamics, and Azure makes Power Apps the most powerful internal ops platform for Microsoft-aligned organisations." },
+      "researchStrategy":{ "fit": false, "justification": "" }
+    }
+  },
+  {
+    "name": "IBM watsonx",
+    "setup": 3, "connections": 7, "cost": 2, "agentCap": 7, "reliability": 10,
+    "description": "An enterprise AI platform built for regulated industries requiring governance, explainability, and data privacy. Strongest in large-scale deployments where compliance and auditability are non-negotiable.",
+    "personas": {
+      "soloFounder":     { "fit": false, "justification": "" },
+      "enterpriseScale": { "fit": true,  "justification": "Designed from the ground up for regulated enterprise — offering explainable AI, full audit trails, and data residency controls that no other platform matches." },
+      "rapidMvp":        { "fit": false, "justification": "" },
+      "contentPipeline": { "fit": false, "justification": "" },
+      "internalOps":     { "fit": true,  "justification": "Trusted by large enterprises for automating complex internal processes where data privacy, auditability, and integration with legacy systems are critical." },
+      "researchStrategy":{ "fit": true,  "justification": "Enterprise-grade data analysis and AI reasoning capabilities make watsonx the right tool for large organisations conducting deep strategic and market research." }
+    }
+  }
+]

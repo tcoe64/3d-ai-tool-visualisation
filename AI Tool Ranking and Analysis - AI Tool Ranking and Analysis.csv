@@ -1,0 +1,11 @@
+Tool,Ease of Setup,Possible Connections,Cost (Value),Agent Capability,Reliability
+Claude (Code/Agents),8,6,5,10,7
+Gemini (Google),8,10,7,6,8
+Perplexity Computer,7,4,7,5,7
+ChatGPT (OpenAI),9,8,5,9,7
+Cursor 3,7,5,7,8,7
+n8n,3,10,10,6,8
+MindStudio,9,4,7,4,7
+Replit,8,5,6,6,6
+Microsoft Power Apps,2,9,3,4,9
+IBM watsonx,3,7,2,7,10

@@ -1,0 +1,7 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(cd \"/Users/thomascoe/Documents/3D Visualisation of AI Tools\" && echo \"y\" | npm create vite@latest . -- --template react-ts 2>&1)"
+    ]
+  }
+}
